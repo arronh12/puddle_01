@@ -1,17 +1,28 @@
-{% extends 'base.html' %}
 
-{% block head %}
+<head>
     <title>Login</title>
-{% endblock %}
+    {% load static %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'account/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'account/style.css' %}" rel="stylesheet">
+</head>
 
-{% block body %}
-    <div class="container mt-3">
-    <h1>Welcome to Login</h1>
-    <h2>Login below...</h2>
-    <form method="post" class="container mt-5">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary mt-4">Log-in</button>
-    </form>
+
+<body>
+    <div class="container mt-3 login_box">
+        <h1>Welcome to Login</h1>
+        <h2>Login below...</h2>
+        <div class="container">
+        <div class="col-am-6">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary mt-4 button_form">Log-in</button>
+            </form>
+        </div>
     </div>
-{% endblock %}
+</body>

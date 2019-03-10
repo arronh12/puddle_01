@@ -1,15 +1,48 @@
 body{
-    background-color: #0b0b0b;
-    color: aliceblue;
+    background-color: #f5fcf4;
+}
+
+h2{
+    color: #3adcfa;
 }
 
 .container-own{
-    background-color: gray;
-    width: 200px;
+    background-color: #3adcfa;
+    border-radius: 25px;
 }
 
 .nav_own{
     background: gray;
+}
+
+.box_gray{
+    background-color: #4e555b;
+}
+
+.nav_list{
+    color: white;
+}
+
+.nav_list a{
+    color: white;
+}
+
+.list_button{
+    color: white;
+}
+
+.own_tables{
+    padding: 15px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.own_tables th{
+    padding: 10px;
+}
+
+.login_box{
+    background-color: black;
 }
 
 

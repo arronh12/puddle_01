@@ -1,4 +1,6 @@
 from django.db import models
+from account.models import AccountProfile
+from account.models import User
 
 
 class Items(models.Model):

@@ -1,20 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from .models import User
 
 
 def home(request):
-    numbers = [1, 2, 3, 4, 5]
-    name = "Arron Hoare"
     context = {
-        'numbers': numbers,
-        'name': name,
     }
     return render(request, 'account/home.html', context)
 
 
 def login(request):
     context = {
-
+        'user': User
     }
     return render(request, 'account/login.html', context)
 

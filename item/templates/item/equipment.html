@@ -5,5 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Equipment</h2>
+    <div class="container mt-5">
+        <h2>Equipment</h2>
+        <form action="{% url 'item:add_item' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary mt-5" type="submit">Add Item</button>
+        </form>
+        <ul>
+        {% for items in all_items%}
+            <li>{{ items.item_name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

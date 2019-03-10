@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Add Items</title>
+{% endblock %}
+
+{% block body %}
+    <h2>Add Item</h2>
+    <div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <table class="own_tables">
+            {{ form }}
+        </table>
+        <button class="btn btn-primary button_form" type="submit">Save</button>
+    </form>
+    </div>
+{% endblock %}
