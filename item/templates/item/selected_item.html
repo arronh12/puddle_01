@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Selected Item</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 ml-5 container-own">
+            <h2>{{ item.item_name }}</h2>
+            <p>barcode:  {{ item.item_barcode }}</p>
+            <p>type:  {{ item.item_type }}</p>
+            <p>assigned:  {{ item.current_employee }}</p>
+            <p>description: {{ item.item_description }}</p>
+            <p>notes: {{ item.item_notes }}</p><br>
+            <h3>Dept: {{ item.dept.dept_name }}</h3>
+            <p>Department Head: {{ item.dept.dept_head }}</p>
+    </div>
+{% endblock %}

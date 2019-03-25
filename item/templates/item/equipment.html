@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
-
 {% block head %}
     <title>Equipment</title>
 {% endblock %}
 
 {% block body %}
     <div class="container mt-5">
-        <h2>Equipment</h2>
+        <h1 class="h1">Equipment</h1>
         <form action="{% url 'item:add_item' %}">
             {% csrf_token %}
-            <button class="btn btn-primary mt-5" type="submit">Add Item</button>
+            <button class="btn btn-primary mt-5 ml-4 mb-2" type="submit">Add Item</button>
         </form>
         <ul>
-        {% for items in all_items%}
-            <li>{{ items.item_name }}</li>
+        {% for items in all_items %}
+            <form action="{% url 'item:selected_item' items.pk %}">
+                <button class="btn btn-secondary button_own" type="submit">{{ items.item_name }}</button><br>
+            </form>
         {% endfor %}
         </ul>
     </div>
