@@ -3,6 +3,7 @@
 
 <head>
   {% load static %}
+  {% load admin_urls %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -25,15 +26,17 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-dark border-right" id="sidebar-wrapper">
+    <div class="bg-dark border-right margin_local" id="sidebar-wrapper">
         <div class="sidebar-heading"><h2>Puddle</h2></div>
       <div class="list-group list-group-flush bg-dark nav_list">
         <a href="{% url 'item:UserHome' %}" class="list-group-item list-group-item-action bg-dark">Home</a>
         <a href="{% url 'item:Equipment' %}" class="list-group-item list-group-item-action bg-dark">Equipment</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark">Jobs</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark">Status</a>
+        <a href="{% url 'job:Jobs' %}" class="list-group-item list-group-item-action bg-dark">Jobs</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark">Statistics</a>
+          {% if current_user.is_staff == True %}
+             <a href="" class="list-group-item list-group-item-action bg-dark">Admin</a>
+          {% endif %}
+        <a href="#" class="list-group-item list-group-item-action bg-dark">Settings</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -49,22 +52,12 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0 right_nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+                <div class="sidebar-heading"><h3 class="user_tag mr-5">{{ current_user.username }}|</h3></div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle nav_list" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Settings
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                 <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <li class="nav-item active nav_list">
+                <a class="nav-link" href="{% url 'account:logout' %}"><span>Logout</span></a>
             </li>
           </ul>
         </div>

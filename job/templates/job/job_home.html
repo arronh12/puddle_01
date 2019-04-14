@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Jobs</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Jobs</h1>
+    <form action="{% url 'job:add_job' %}">
+        {% csrf_token %}
+        <button class="btn btn-secondary mt-5 ml-4 mb-2" type="submit">Create Job</button>
+     </form>
+
+    <ul>
+        {% for jobs in all_jobs %}
+            <form action="{% url 'job:selected_job' jobs.pk%}">
+                <button class="btn btn-secondary button_own" type="submit">{{ jobs.job_name }}</button><br>
+            </form>
+        {% endfor %}
+    </ul>
+{% endblock %}

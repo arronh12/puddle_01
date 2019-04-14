@@ -11,18 +11,22 @@
     <link href="{% static 'account/style.css' %}" rel="stylesheet">
 </head>
 
-
 <body>
-    <div class="container mt-3 login_box">
-        <h1>Welcome to Login</h1>
-        <h2>Login below...</h2>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
         <div class="container">
-        <div class="col-am-6">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary mt-4 button_form">Log-in</button>
-            </form>
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <h2>Login</h2>
+                        <form id="login-form" class="form" method="post">
+                          {% csrf_token %}
+                          {{ form.as_p }}
+                          <button type="submit" class="btn btn-secondary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

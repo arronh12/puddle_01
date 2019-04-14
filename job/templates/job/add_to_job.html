@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Add Items to job</title>
+{% endblock %}
+
+{% block body %}
+    <p>{{ job.job_name }}</p>
+    <form method="get" class="form-inline my-2 my-lg-1">
+        <input class="form-control mr-sm-2" type="search" placeholder="Scan" aria-label="search" name="search">
+    </form>
+
+    {% for list in new_job %}
+        <p>{{ list.item_name }}</p>
+    {% endfor %}
+{% endblock %}

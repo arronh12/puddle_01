@@ -6,12 +6,18 @@ h2{
     color: #3adcfa;
 }
 
+
+
 .container-own{
     background-color: gray;
     opacity: 50%;
     width: 80%;
     padding: 3em;
     border-radius: 25px;
+}
+
+.user_tag{
+    color: #3adcfa;
 }
 
 .nav_own{
@@ -27,6 +33,10 @@ h2{
 }
 
 .nav_list a{
+    color: white;
+}
+
+.right_nav a span{
     color: white;
 }
 
@@ -50,9 +60,21 @@ h2{
 
 .button_own{
     width: 40%;
-    background-color: gray;
-    color: white;
     border-radius: 0;
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
 }
 
 

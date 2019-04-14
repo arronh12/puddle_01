@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
-from item.models import Items, User
+from item.models import Items
 from item.forms import AddForm
 
 
@@ -13,12 +13,18 @@ class UserHomeView(TemplateView):
 class EquipmentView(TemplateView):
     template_name = 'item/equipment.html'
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
+        search_term = ''
         all_items = Items.objects.all()
         selected = 0
+
+        if 'search' in self.request.GET:
+            search_term = self.request.GET['search']
+            all_items = all_items.filter(item_name__contains=search_term)
         context = {
             'all_items': all_items,
-            'selected': selected
+            'selected': selected,
+            'search_term': search_term,
         }
         return render(request, self.template_name, context)
 

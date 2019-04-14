@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>selected jobs</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 ml-5 container-own">
+        <h2>{{ job.job_name }}</h2>
+        <p>Manager: {{ job.job_manager }}</p>
+        <p>get-in time: {{ job.get_in_time }}</p>
+        <p>Start Date: {{ job.job_start_date }}</p>
+        <p>End Date: {{ job.job_end_date }}</p>
+
+        <form action="{% url 'job:add_to_job' job.pk%}">
+        {% csrf_token %}
+        <button class="btn btn-secondary mt-5 ml-4 mb-2" type="submit">Add Items</button>
+     </form>
+
+    </div>
+{% endblock %}

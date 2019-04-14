@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import User
 
 
@@ -28,4 +28,8 @@ def login_check(request):
         # Return an 'invalid login' error message.
         ...
 
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'account/home.html')
 

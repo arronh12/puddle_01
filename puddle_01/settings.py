@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'account',
     'scanner',
     'item',
+    'job',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'account.context_processors.check_superuser_status',
             ],
         },
     },
@@ -122,3 +124,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/item/'
+LOGOUT_REDIRECT_URL = '/item/'
